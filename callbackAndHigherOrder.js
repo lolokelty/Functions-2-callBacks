@@ -124,6 +124,7 @@ const uniq = (arr, cb) => {
     cb(arr)
 }
 
+
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
   The callback function should take in one parameter called uniqArr.
@@ -132,7 +133,7 @@ const uniq = (arr, cb) => {
 */
 
 
-
+uniq(names, uniqArr => console.log(`The new names array with all the duplicate items removes is ${uniqArr}`))
 
 
 ////////// PROBLEM 6 //////////
@@ -152,7 +153,7 @@ const each = (arr, cb) => arr.forEach((el, i) => cb(el, i))
   'The item at index [INDEXPARAM] is [ITEMPARAM].'
 */
 
-// CODE HERE
+each(names, (item, index) => `The item at index ${index} is ${item}`)
 
 
 
@@ -178,7 +179,13 @@ const each = (arr, cb) => arr.forEach((el, i) => cb(el, i))
   the two parameters together and return the sum.
 */
 
-// CODE HERE
+const addingFactory = num1 => {
+    return function(num2) {
+        return num1 + num2;
+    }
+}
+
+
 
 /*
   Now that you have addingFactory, you can create other
@@ -192,7 +199,7 @@ const each = (arr, cb) => arr.forEach((el, i) => cb(el, i))
   10 as an arguemnt.
 */
 
-// CODE HERE
+const addTen = addingFactory(10)
 
 /*
   Now the inner function is stored in the addTen variable! 
@@ -204,7 +211,8 @@ const each = (arr, cb) => arr.forEach((el, i) => cb(el, i))
   to see the different outputs.
 */
 
-// CODE HERE
+console, log(addTen(5));
+console.log(addTen(1025))
 
 /*
   Let's make another function from the addingFactory. 
@@ -217,7 +225,10 @@ const each = (arr, cb) => arr.forEach((el, i) => cb(el, i))
   to add any number to your favorite number!
 */
 
-// CODE HERE
+const addFive = addingFactory(5);
+
+console.log(AddFive(5))
+console.log(addFive(105))
 
 
 
@@ -252,7 +263,13 @@ var users = [{
     ]
     // Do not edit the code above.
 
-// CODE HERE 
+const getUserById = (arr, id, cb) => {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].id === id) {
+            return cb(arr[i])
+        }
+    }
+}
 
 
 
